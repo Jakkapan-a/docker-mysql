@@ -11,7 +11,7 @@ services:
       - ./mysql_data/initdb/:/docker-entrypoint-initdb.d/
       - ./mysql_data/data/:/var/lib/mysql/
     ports:
-      - 3306:3306
+      - ${HOST_PORT}:3306
     restart: always
     networks:
       - db_network
