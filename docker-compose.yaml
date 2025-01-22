@@ -3,10 +3,10 @@ services:
     image: mysql:8.0.39
     container_name: mysql
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: test
-      MYSQL_USER: test
-      MYSQL_PASSWORD: test
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD} # Change this to your own password
+      MYSQL_DATABASE: ${MYSQL_DATABASE} # Change this to your own database
+      MYSQL_USER: ${MYSQL_USER} # Change this to your own user
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD} # Change this to your own password
     volumes:
       - ./mysql_data/initdb/:/docker-entrypoint-initdb.d/
       - ./mysql_data/data/:/var/lib/mysql/
