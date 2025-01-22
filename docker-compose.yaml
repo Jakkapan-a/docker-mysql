@@ -1,0 +1,21 @@
+services:
+  mysql:
+    image: mysql:8.0.39
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: test
+      MYSQL_USER: test
+      MYSQL_PASSWORD: test
+    volumes:
+      - ./mysql_data/initdb/:/docker-entrypoint-initdb.d/
+      - ./mysql_data/data/:/var/lib/mysql/
+    ports:
+      - 3306:3306
+    restart: always
+    networks:
+      - db_network
+
+networks:
+  db_network:
+    driver: bridge
